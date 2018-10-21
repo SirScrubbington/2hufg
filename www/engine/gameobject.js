@@ -1,8 +1,16 @@
 class GameObject
 {
-	constructor(name,main=function(){},onCreate=function(){},onDestroy=function(){},onCollision=function(other){})
+	constructor(
+		name,
+		sprite,
+		main = function(){},
+		onCreate = function(){},
+		onDestroy = function(){},
+		onCollision = function(other){}
+	)
 	{
 		this.name = name;
+		this.sprite = sprite;
 		this.properties = {};
 		this.animations = {};
 		this.onCreate = onCreate;

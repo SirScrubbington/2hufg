@@ -6,22 +6,25 @@ function loop()
 
 class Game
 {
-	constructor()
+	constructor(GameClass = null)
 	{
 		this.canvasElement = document.createElement('canvas');
 		
 		this.worldSpaceMatrix = new Mat3;
 		
 		this.gl = this.canvasElement.getContext('webgl2');
-		this.gl.clearColor(0.4,0.4,1.0,0.0);
-		
+		this.gl.clearColor(0.4,0.4,1.0,0.0);		
 		
 		document.body.appendChild(this.canvasElement);
 		
 		const vs = document.getElementById('vs01').innerHTML;
 		const fs = document.getElementById('fs01').innerHTML;
 
+		this.game = GameClass;
+		
 		// just for testing!! abstract this!
+		
+		/*
 		//this.sprite1 = new Sprite(this.gl,"img/reimu.png",vs,fs,{width:32,height:52});
 		//this.sprite2 = new Sprite(this.gl,"img/marisa.png",vs,fs,{width:32,height:48});
 		
@@ -30,6 +33,7 @@ class Game
 		
 		this.sprite1Frame = new Point();
 		//this.sprite2Frame = new Point();
+		*/
 	}
 	
 	resize(x,y)
@@ -51,6 +55,7 @@ class Game
 		
 		// just for testing!! abstract this!
 		
+		/*
 		 this.sprite1Frame.x = new Date() * 0.006 % 4;
 		//this.sprite1Frame.y = new Date() * 0.002 % 2;
 		
@@ -58,7 +63,25 @@ class Game
 		
 		 this.sprite1.render(this.sprite1Pos,this.sprite1Frame);
 		//this.sprite2.render(this.sprite2Pos,this.sprite2Frame);
+		*/
+		
+		if (!(this.game == null))
+		{
+			game.step();
+			render(game.gameObjects);
+		}
 		
 		this.gl.flush();
+	}
+	
+	render(objects)
+	{
+		for (var object in objects)
+		{
+			if(objects.hasOwnProperty(object) && object.active == true)
+			{
+				
+			}
+		}
 	}
 }
