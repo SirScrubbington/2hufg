@@ -8,8 +8,8 @@ const fs = require('fs');
 
 const properties = JSON.parse(fs.readFileSync('properties.json','utf8'));
 
-const port = properties.port;
-const host = properties.host;
+const port = process.env.YOUR_PORT || process.env.PORT || properties.port;
+const host = process.env.YOUR_HOST || properties.host;
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname,'www')));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-const server = http.listen(process.env.PORT || port,host,function()
+const server = http.listen(process.env.PORT || port, host,function()
 {
 	console.log('Server is listening on '+ host + ':' + (process.env.PORT));// || port));
 });
