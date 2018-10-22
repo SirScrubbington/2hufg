@@ -29,6 +29,6 @@ app.use(bodyParser.json());
 
 const server = http.listen(process.env.PORT || port,host,function()
 {
-	console.log('Server is listening on '+ host + ':' + port);
+	console.log('Server is listening on '+ host + ':' + (process.env.PORT));// || port));
 });
 
