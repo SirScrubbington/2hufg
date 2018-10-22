@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname,'www')));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-const server = http.listen(port,host,function()
+const server = http.listen(process.env.PORT || port,host,function()
 {
 	console.log('Server is listening on '+ host + ':' + port);
 });
