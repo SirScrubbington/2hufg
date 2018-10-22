@@ -6,14 +6,18 @@
 		<script src="engine/sprite.js"></script>
 		<script src="engine/matrix.js"></script>
 		<script src="engine/point.js"></script>
+		<script src="engine/gameobject.js"></script>
+		<script src="engine/game.js"></script>
+		<script src="engine/menu.js"></script>
+		<script src="engine/quadtree.js"></script>
 		<link rel="stylesheet" type="text/css" href="index.css">
 		<script>
 			window.addEventListener('load',function()
 			{
-				window.game = new Game();
-				window.game.resize(
+				window.engine = new GameEngine();
+				window.engine.resize(
 					960,
-					 720
+					720
 				);
 				loop();
 			});

@@ -1,10 +1,10 @@
 function loop()
 {
-	window.game.update();
+	window.engine.update();
 	requestAnimationFrame(loop);
 }
 
-class Game
+class GameEngine
 {
 	constructor(GameClass = null)
 	{
@@ -67,21 +67,9 @@ class Game
 		
 		if (!(this.game == null))
 		{
-			game.step();
-			render(game.gameObjects);
+			game.step(true);
 		}
 		
 		this.gl.flush();
-	}
-	
-	render(objects)
-	{
-		for (var object in objects)
-		{
-			if(objects.hasOwnProperty(object) && object.active == true)
-			{
-				
-			}
-		}
 	}
 }
