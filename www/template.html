@@ -12,40 +12,13 @@
 		<script src="engine/quadtree.js"></script>
 		<link rel="stylesheet" type="text/css" href="index.css">
 		<script>
-		
-			// game loop
-			function loop()
-			{
-				window.backCanvas.update();
-				window.frontCanvas.update();
-
-				requestAnimationFrame(loop);
-			}
-		
-			function addCanvas(name)
-			{
-				window[name] = new GameEngine(name);
-				window[name].resize(
-					window.x,
-					window.y
-				);
-			}
-		
-			// trigger on page load
 			window.addEventListener('load',function()
 			{
-				window.x = 960;
-				window.y = 720;
-
-				addCanvas('frontCanvas');
-				addCanvas('backCanvas');
-				
-				// handle text canvas
-				window.textCanvas = document.createElement('canvas');
-				window.textCanvasCTX = window.textCanvas.getContext('2d');				
-
-				window.backCanvas.clearColor(0.2,0.1,0.2,1.0);
-				
+				window.engine = new GameEngine();
+				window.engine.resize(
+					960,
+					720
+				);
 				loop();
 			});
 		</script>

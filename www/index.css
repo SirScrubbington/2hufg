@@ -11,5 +11,23 @@ body
 
 canvas
 {
-	background:black;
+	background-color: transparent;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#text
+{
+	z-index: 3;
+}
+
+#front
+{
+	z-index: 2;
+}
+
+#back
+{
+	z-index: 1;
 }

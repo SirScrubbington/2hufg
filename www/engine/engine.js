@@ -1,39 +1,22 @@
-function loop()
-{
-	window.engine.update();
-	requestAnimationFrame(loop);
-}
-
 class GameEngine
 {
-	constructor(GameClass = null)
+	constructor(canvas = null)
 	{
 		this.canvasElement = document.createElement('canvas');
+		
+		if(canvas)
+		{
+			this.canvasElement.setAttribute("id",canvas);
+		}
 		
 		this.worldSpaceMatrix = new Mat3;
 		
 		this.gl = this.canvasElement.getContext('webgl2');
-		this.gl.clearColor(0.4,0.4,1.0,0.0);		
 		
 		document.body.appendChild(this.canvasElement);
 		
 		const vs = document.getElementById('vs01').innerHTML;
 		const fs = document.getElementById('fs01').innerHTML;
-
-		this.game = GameClass;
-		
-		// just for testing!! abstract this!
-		
-		/*
-		//this.sprite1 = new Sprite(this.gl,"img/reimu.png",vs,fs,{width:32,height:52});
-		//this.sprite2 = new Sprite(this.gl,"img/marisa.png",vs,fs,{width:32,height:48});
-		
-		this.sprite1Pos = new Point();
-		//this.sprite2Pos = new Point();
-		
-		this.sprite1Frame = new Point();
-		//this.sprite2Frame = new Point();
-		*/
 	}
 	
 	resize(x,y)
@@ -71,5 +54,10 @@ class GameEngine
 		}
 		
 		this.gl.flush();
+	}
+	
+	clearColor(r = 0.0, g = 0.0, b = 0.0, a =0.0)
+	{
+		this.gl.clearColor(r,g,b,a);		
 	}
 }
