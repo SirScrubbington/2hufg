@@ -5,8 +5,7 @@
 ## Introduction
 A touhou fangame repository using Javascript and WebGL
 
-This project is no longer supported, and will not be updated. If this
-project is re-attempted, it will not  be using this repository. 
+This project is not currently supported, but may be reopened at a later time.
 
 ## Future Changes
 A list of future planned fixes / improvements are listed below.
